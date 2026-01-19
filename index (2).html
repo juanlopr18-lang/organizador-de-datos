@@ -1,0 +1,54 @@
+<html>
+<body>
+<h1>Organizador de datos</h1>
+    
+    <h3> Ingresa los datos </h3>
+    
+    <div class="step">
+        <label>Tipo de dato</label>
+        <select id="tipoDato">
+            <option value="Cuantitativo">Cuantitativo</option>
+            <option value="Cualitativo">Cualitativo</option>
+        </select>
+    </div>
+    <br>
+    <label>Ingresa número si es cuantitativo o ingresa texto si es cualitativo: </label>
+    <br>
+    <input type="number" id="numero1" placeholder="Ingresa dato (Numérico)">
+    <input type="text" id="text1" placeholder="Ingresa dato (Texto)">
+    <br>
+    <label> Añade una etiqueta (Por ejemplo: Metros, Celsios, Día, manzanas) </label> <br>
+    <input type="text" id="label1" Placeholder="Escribe la etiqueta aquí"> 
+    <br>
+        <button onclick="Guardar()">Guardar</button>
+        <ul id="resultado"></ul>
+        
+<script>
+
+    function Guardar() {
+        let numero1 = document.getElementById("numero1").value;
+        let text1 = document.getElementById("text1").value;
+        let label1 = document.getElementById("label1").value;
+
+    
+    if ((numero1 === "" && text1 === "") || label1 === "") {
+        alert("Completa los campos");
+        return;
+    }
+
+    let valor = numero1 || text1;
+
+    let li = document.createElement("li");
+    li.textContent = "Dato: " + valor + " | Etiqueta: " + label1;
+
+    document.getElementById("resultado").appendChild(li);
+
+    document.getElementById("numero1").value = "";
+    document.getElementById("text1").value = "";
+    document.getElementById("label1").value = "";
+}
+    
+</script>        
+
+</body>
+</html>
